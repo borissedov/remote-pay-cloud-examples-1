@@ -1,10 +1,12 @@
 import clover from 'remote-pay-cloud';
 import POSCloverConnectorListener from './POSCloverConnectorListener';
 import React from 'react';
+import { myConfig } from '../config.js';
+
 
 export default class CloverConnection {
 
-    constructor(options){
+    constructor(options) {
         this.cloverConnector = null;
         this.connected = false;
         Object.assign(this, options);
@@ -16,9 +18,9 @@ export default class CloverConnection {
         let cloverConnectorFactory = clover.CloverConnectorFactoryBuilder.createICloverConnectorFactory(factoryConfig);
         let connector = cloverConnectorFactory.createICloverConnector(new ExampleWebsocketPairedCloverDeviceConfiguration({
             uri: uriText,
-            applicationId: 'com.clover.cloud-pos-example-react',
-            posName: 'pos.name',
-            serialNumber: 'register_1',
+            appId: myConfig.appId,
+            posName: myConfig.posName,
+            serialNumber: appId.serialNumber,
             authToken: authToken,
             heartbeatInterval: 1000,
             reconnectDelay: 3000
@@ -47,9 +49,9 @@ export default class CloverConnection {
         factoryConfig[clover.CloverConnectorFactoryBuilder.FACTORY_VERSION] = clover.CloverConnectorFactoryBuilder.VERSION_12;
         let cloverConnectorFactory = clover.CloverConnectorFactoryBuilder.createICloverConnectorFactory(factoryConfig);
         let connector = cloverConnectorFactory.createICloverConnector(new ExampleWebsocketCloudCloverDeviceConfiguration({
-            appId: 'com.clover.cloud-pos-example-react',
-            cloverServer: 'https://dev1.dev.clover.com/',
-            serialNumber: 'register_1',
+            appId: myConfig.appId,
+            cloverServer: appId.cloverServer,
+            serialNumber: appId.serialNumber,
             accessToken: accessToken,
             merchantId: merchantId,
             deviceId: deviceId,
