@@ -1,7 +1,7 @@
 export const myConfig = {
-    applicationId: 'com.clover.cloud-pos-example-react',
-    cloverServer: 'https://dev1.dev.clover.com/',
+    appId: 'com.clover.cloud-pos-example-react',
     clientId: 'HBK8YZG9EQNJG',
+    cloverServer: 'https://dev1.dev.clover.com/'
     devicesDomain: 'https://apidev1.dev.clover.com/v3/merchants/',
     oAuthDomain: 'https://dev1.dev.clover.com',
     posName: 'pos.name'        
